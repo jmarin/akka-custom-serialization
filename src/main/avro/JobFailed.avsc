@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "JobFailedPayload",
+  "namespace": "sample.cluster.transformation.serialization.avro",
+  "fields": [
+     {
+       "name": "reason",
+       "type": "string"
+     }
+  ]
+}

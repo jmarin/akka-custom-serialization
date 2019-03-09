@@ -7,6 +7,6 @@ public class TransformationApp {
         TransformationBackendMain.main(new String[] { "2551" });
         TransformationBackendMain.main(new String[] { "2552" });
         TransformationBackendMain.main(new String[0]);
-        TransformationFrontendMain.main(new String[] {"2551"});
+        TransformationFrontendMain.main(new String[0]);
     }
 }

@@ -1,25 +1,49 @@
 package sample.cluster.transformation;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
+import java.util.Objects;
 
 public interface TransformationMessages {
 
-    public static class TransformationJob implements Serializable {
+    class TransformationJob implements Serializable {
         private final String text;
 
-        public TransformationJob(String text) {
+        @JsonCreator
+        public TransformationJob(@JsonProperty("text") String text) {
             this.text = text;
         }
 
         public String getText() {
             return text;
         }
+
+        @Override
+        public String toString() {
+            return "Transformation job (" + text + ")";
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            TransformationJob that = (TransformationJob) o;
+            return Objects.equals(getText(), that.getText());
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(getText());
+        }
     }
 
-    public static class TransformationResult implements Serializable {
+    class TransformationResult implements Serializable {
         private final String text;
 
-        public TransformationResult(String text) {
+        @JsonCreator
+        public TransformationResult(@JsonProperty("text") String text) {
             this.text = text;
         }
 
@@ -31,12 +55,26 @@ public interface TransformationMessages {
         public String toString() {
             return "TransformationResult(" + text + ")";
         }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            TransformationResult that = (TransformationResult) o;
+            return Objects.equals(getText(), that.getText());
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(getText());
+        }
     }
 
-    public static class JobFailed implements Serializable {
+    class JobFailed implements Serializable {
         private final String reason;
 
-        public JobFailed(String reason) {
+        @JsonCreator
+        public JobFailed(@JsonProperty("reason") String reason) {
             this.reason = reason;
         }
 
@@ -47,6 +85,19 @@ public interface TransformationMessages {
         @Override
         public String toString() {
             return "JobFailed(" + reason + ")";
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            JobFailed jobFailed = (JobFailed) o;
+            return Objects.equals(getReason(), jobFailed.getReason());
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(getReason());
         }
     }
 

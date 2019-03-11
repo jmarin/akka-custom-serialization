@@ -7,12 +7,7 @@ import sample.cluster.transformation.TransformationMessages.*;
 
 import java.io.IOException;
 
-public class JacksonSerializer extends SerializerWithStringManifest {
-
-    public final String JOB_FAILED_MANIFEST = "JobFailed";
-    public final String TRANSFORMATION_JOB_MANIFEST = "TransformationJob";
-    public final String TRANSFORMATION_RESULT_MANIFEST = "TransformationResult";
-
+public class JacksonSerializer extends SerializerWithStringManifest implements SerializerManifest {
 
     @Override
     public int identifier() {

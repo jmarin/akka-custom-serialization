@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package protobuf;
+
+option java_package = "sample.cluster.serialization.protobuf";
+
+message JobFailedMessage {
+    string reason = 1;
+}

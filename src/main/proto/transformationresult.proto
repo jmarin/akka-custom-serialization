@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package protobuf;
+
+option java_package = "sample.cluster.serialization.protobuf";
+
+message TransformationResultMessage {
+    string text = 1;
+}

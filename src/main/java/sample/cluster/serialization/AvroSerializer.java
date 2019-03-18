@@ -19,11 +19,7 @@ import java.io.NotSerializableException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class AvroSerializer extends SerializerWithStringManifest {
-
-    private final String JOB_FAILED_MANIFEST = "JobFailed";
-    private final String TRANSFORMATION_JOB_MANIFEST = "TransformationJob";
-    private final String TRANSFORMATION_RESULT_MANIFEST = "TransformationResult";
+public class AvroSerializer extends SerializerWithStringManifest implements SerializerManifest {
 
     @Override
     public int identifier() {
